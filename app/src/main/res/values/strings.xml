@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Demo</string>
+    <string name="my_preference">com.bvcoe.com.MyPref</string>
+    <string name="my_preference_key">com.bvcoe.com.MyPrefKey</string>
+    <string name="log_in">Log In</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">Email</string>
+</resources>
