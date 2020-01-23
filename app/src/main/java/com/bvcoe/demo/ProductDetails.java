@@ -3,8 +3,12 @@ package com.bvcoe.demo;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -98,7 +102,8 @@ public class ProductDetails extends AppCompatActivity {
 //                break;
 
             case R.id.cart:
-                return true;
+//                setContentView(R.layout.cart_item_layout);
+
 //                break;
 
             case  android.R.id.home:
