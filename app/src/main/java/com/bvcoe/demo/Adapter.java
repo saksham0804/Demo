@@ -2,7 +2,6 @@ package com.bvcoe.demo;
 
 import android.content.Context;
 import android.content.Intent;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -19,7 +17,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     private Context mCtx;
     private List<recycleview> productList;
-    CardView cv;
 
      Adapter(Context mCtx, List<recycleview> productList) {
         this.mCtx = mCtx;
@@ -65,7 +62,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    view.getContext().startActivity(new Intent(mCtx,dump.class));
+                    view.getContext().startActivity(new Intent(mCtx,ProductDetails.class));
                 }
             });
         }

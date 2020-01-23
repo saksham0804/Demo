@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -36,6 +37,11 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setTitle(Html.fromHtml("<font color='#000000'>Sign Up</font>"));
         setContentView(R.layout.activity_sign_up);
+        if(getSupportActionBar()!=null) {
+
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.left);
+        }
 
 
         username = findViewById(R.id.editText6);
@@ -114,5 +120,16 @@ public class SignUp extends AppCompatActivity {
                 }
             }
         });
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                //Write your logic here
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

@@ -2,10 +2,13 @@ package com.bvcoe.demo;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,9 +35,15 @@ public class Login extends AppCompatActivity {
         @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle(Html.fromHtml("<font color='#000000'>Sign In</font>"));
-        if(getSupportActionBar()!=null)
+//        requestWindowFeature(Window.FEATURE_ACTION_BAR);
+        if(getSupportActionBar()!=null) {
+
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.left);
+        }
+
+        setTitle(Html.fromHtml("<font color='#000000'>Sign In</font>"));
+
         setContentView(R.layout.activity_login);
         firebaseAuth = FirebaseAuth.getInstance();
 //        Button register = findViewById(R.id.button2);
@@ -47,6 +56,18 @@ public class Login extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                //Write your logic here
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void LogIn(View view)
@@ -109,15 +130,15 @@ public class Login extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        if (SaveSharedPreference.getUserName(Login.this).length() != 0) {
-            startActivity(new Intent(this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK));
-            finish();
-        }
-//        firebaseAuth.addAuthStateListener(authStateListener );
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//
+//        if (SaveSharedPreference.getUserName(Login.this).length() != 0) {
+//            startActivity(new Intent(this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+//            finish();
+//        }
+////        firebaseAuth.addAuthStateListener(authStateListener );
+//    }
 
 }

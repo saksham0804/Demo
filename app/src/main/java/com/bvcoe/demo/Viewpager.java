@@ -26,7 +26,7 @@ public class Viewpager extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if(new PrefernceManager(this).checkPrefernce()) {
-            startActivity(new Intent(Viewpager.this, MainActivity.class));
+            startActivity(new Intent(Viewpager.this, beforeLogin .class));
             finish();
         }
 
@@ -79,8 +79,8 @@ public class Viewpager extends AppCompatActivity {
 
                 new PrefernceManager(getApplicationContext()).writePrefernce();
 
-                startActivity(new Intent(getApplicationContext(), Login.class));
-                finish();
+                startActivity(new Intent(getApplicationContext(), beforeLogin.class));
+//                finish();
 
             }
         };

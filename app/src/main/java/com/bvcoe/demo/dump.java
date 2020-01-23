@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -29,6 +30,11 @@ public class dump extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dump);
+        if(getSupportActionBar()!=null) {
+
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.left);
+        }
 
 
         editTextName = findViewById(R.id.edittext_name);
@@ -53,6 +59,17 @@ public class dump extends AppCompatActivity {
 
         findViewById(R.id.button_save).setOnClickListener(listener);
         findViewById(R.id.textview_view_products).setOnClickListener(listener);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                //Write your logic here
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
     public void saveProduct(){
         String name = editTextName.getText().toString().trim();
