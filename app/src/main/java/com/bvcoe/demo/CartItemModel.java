@@ -1,5 +1,9 @@
 package com.bvcoe.demo;
 
+import android.graphics.drawable.Drawable;
+import android.provider.ContactsContract;
+import android.widget.ImageView;
+
 public class CartItemModel {
 
     public static final int CART_ITEM = 0;
@@ -16,12 +20,20 @@ public class CartItemModel {
     }
     //cart item
 
-    public CartItemModel(int type, int totalItems, String totalAmount, String deliveryPrice, String savedAmount) {
+    public String getTotalItemsPrice() {
+        return TotalItemsPrice;
+    }
+
+    public void setTotalAmount(String totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public CartItemModel(int type, String totalItems, String TotalItemsPrice, String deliveryPrice, String savedAmount, String totalAmount) {
         this.type = type;
         this.totalItems = totalItems;
-        TotalItemsPrice = totalAmount;
+        this.TotalItemsPrice = TotalItemsPrice;
         DeliveryPrice = deliveryPrice;
-        this.savedAmount = savedAmount;
+        this.totalAmount=totalAmount;
     }
     private int productImage;
     private String productTitle;
@@ -30,16 +42,22 @@ public class CartItemModel {
     private int productquantity;
     private int offersApplied;
 
-    public int getTotalItems() {
+    public String  getTotalItems() {
         return totalItems;
     }
 
-    public void setTotalItems(int totalItems) {
+    public void setTotalItems(String totalItems) {
         this.totalItems = totalItems;
     }
 
     public void setTotalItemsPrice(String totalAmount) {
         TotalItemsPrice = totalAmount;
+    }
+    public String gettotalAmount(){
+        return  totalAmount;
+    }
+    public  void settotalAmount(String totalAmount){
+        this.totalAmount=totalAmount;
     }
 
     public String getDeliveryPrice() {
@@ -116,7 +134,7 @@ public class CartItemModel {
         this.offersApplied = offersApplied;
     }
 
-    public CartItemModel( int type,int productImage, String productTitle, String productPrice, String cuttedPrice, int productquantity, int offersApplied) {
+    public CartItemModel(int type, int productImage, String productTitle, String productPrice, String cuttedPrice, int productquantity, int offersApplied) {
         this.type = type;
         this.productImage = productImage;
         this.productTitle = productTitle;
@@ -127,9 +145,10 @@ public class CartItemModel {
     }
 
     //cart total
-    private int totalItems;
+    private String totalItems;
     private String TotalItemsPrice;
     private String DeliveryPrice;
     private String savedAmount;
+    private String totalAmount;
 
 }

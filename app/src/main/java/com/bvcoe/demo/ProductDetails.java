@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -24,6 +25,8 @@ public class ProductDetails extends AppCompatActivity {
 
     private ViewPager productimagesViewpager;
     private TabLayout viewpagerIndicator;
+
+    private ConstraintLayout constraintLayout;
 
     private ViewPager productDetailsViewpager;
     private TabLayout productDetailsTabLayout;
@@ -46,6 +49,7 @@ public class ProductDetails extends AppCompatActivity {
         productDetailsViewpager = findViewById(R.id.product_details_viewpager);
         productDetailsTabLayout = findViewById(R.id.product_details_tablayout);
 
+        constraintLayout=findViewById(R.id.constraint);
         List<Integer> productImages = new ArrayList<>();
         productImages.add(R.drawable.download);
         productImages.add(R.drawable.download1);
@@ -103,8 +107,8 @@ public class ProductDetails extends AppCompatActivity {
 
             case R.id.cart:
 //                setContentView(R.layout.cart_item_layout);
-
-//                break;
+                    mycart();
+                break;
 
             case  android.R.id.home:
                 finish();
@@ -113,5 +117,15 @@ public class ProductDetails extends AppCompatActivity {
 
         }
         return true;
+    }
+    private void mycart(){
+        invalidateOptionsMenu();
+        setFragment(new MyCartFragment());
+
+    }
+    private void setFragment(Fragment fragment){
+        FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(constraintLayout.getId(),fragment);
+        fragmentTransaction.commit();
     }
 }
