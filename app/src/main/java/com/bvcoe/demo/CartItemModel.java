@@ -1,8 +1,5 @@
 package com.bvcoe.demo;
 
-import android.graphics.drawable.Drawable;
-import android.provider.ContactsContract;
-import android.widget.ImageView;
 
 public class CartItemModel {
 

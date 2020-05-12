@@ -63,8 +63,10 @@ public class ProductDetails extends AppCompatActivity {
         viewpagerIndicator.setupWithViewPager(productimagesViewpager, true);
         ConstraintLayout.LayoutParams params =
                 (ConstraintLayout.LayoutParams)viewpagerIndicator.getLayoutParams();//ConstraintLayout is my layout manager
-        params.rightMargin = 3;
-        params.leftMargin=3;
+        params.rightMargin =0 ;
+        params.leftMargin=0;
+        params.bottomMargin = 0;
+        params.topMargin = 0;
         viewpagerIndicator.setLayoutParams(params);
 
     productDetailsViewpager.setAdapter(new productDetailsAdapter(getSupportFragmentManager(),productDetailsTabLayout.getTabCount()));
